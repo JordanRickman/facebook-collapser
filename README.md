@@ -15,6 +15,8 @@ _This was a quick-and-dirty weekend project, and I have only tested it with Tamp
 1. Install the [Tampermonkey](https://tampermonkey.net/) browser extension.
 2. Open the Tampermonkey menu and create a new script.
 3. Copy and paste the source code from [facebook-collapser.js](/facebook-collapser.js)
+4. Save the script.
+5. Open Facebook, or reload the page if you already have it open.
 
 ## Possible Future Improvements
 

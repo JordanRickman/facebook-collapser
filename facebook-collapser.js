@@ -17,6 +17,9 @@
     ///// Configuration Constants /////
     const DEBUG = false;                        // Whether to print debug messages to the console - look for occurences of debugLog(...)
     const CSS_PREFIX = 'fbpc_';                 // Prefix for CSS classes and element IDs
+    const DEBOUNCE_MS = 500;                    // Number of milliseconds to wait after posts load before collapsing them -
+                                                // as you scroll, posts will be visible this long before collapsing, but make this too short and the page can flicker/stutter
+                                                // (we "debounce" the listeners to this length so that lots of page changes are handled in a single sweep.)
     // Selectors based on the Facebook page at the time of making this script - these may need to change as Facebook changes itself
     const NEWSFEED_WRAPPER_SELECTOR = '._5pcb'; // Selector for a top-level div of the newsfeed
     const POST_SELECTOR = '._5jmm._5pat';       // Selector for a post or other newsfeed item
@@ -138,10 +141,10 @@
 
     ///// Global Change Listeners /////
     // Fire collapseAllNewPosts 1 second after the page loads...
-    $(document).ready(_.debounce(printErrors(collapseAllNewPosts), 1000));
+    $(document).ready(_.debounce(printErrors(collapseAllNewPosts), DEBOUNCE_MS));
 
     // ... and 1 second after FB finishes loading new posts (during infinite scrolling)
-    const newsfeedObserver = new MutationObserver(_.debounce(printErrors(collapseAllNewPosts), 1000));
+    const newsfeedObserver = new MutationObserver(_.debounce(printErrors(collapseAllNewPosts), DEBOUNCE_MS));
     $(document).ready(function() { // document.ready so that the newsfeed top-level div exists
         // we observe only the newsfeed top-level div in order to reduce unneccesary observer calls
         const newsfeedWrapper = $(NEWSFEED_WRAPPER_SELECTOR);
