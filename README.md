@@ -5,6 +5,9 @@ Personally, I find Facebook dangerously overwhelming. The barrage of social and 
 
 Facebook Post-Collapser converts your newsfeed into an inbox-style list of summaries - each post is collapsed down to just its titlebar. Sponsored posts and ads are collapsed too. Each summary can be individually expanded and then collapsed again. _You decide_ which items are worth reading. It helps puts you back in control, instead of Facebook controlling your attention.
 
+Here is what your newsfeed will look like:
+![Facebook Post-Collapser Screenshot](/Screenshot.jpg)
+
 _This was a quick-and-dirty weekend project, and I have only tested it with Tampermonkey on Google Chrome. Please open an issue if you find bugs._
 
 ## Installation Instructions
